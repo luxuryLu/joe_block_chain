@@ -1,0 +1,23 @@
+{
+  "name": "joe_block_chain",
+  "version": "1.0.0",
+  "description": "joe's block chain",
+  "main": "block.js",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxuryLu/joe_block_chain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luxuryLu/joe_block_chain/issues"
+  },
+  "homepage": "https://github.com/luxuryLu/joe_block_chain#readme"
+}
