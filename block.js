@@ -10,6 +10,9 @@ class Block{
     computeHash() {
         return SHA256(this.data + this.preHash).toString();
     }
+    checkHash() {
+        return SHA256(this.data + this.preHash).toString() === this.hash;
+    }
 }
 
 module.exports = Block;

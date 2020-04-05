@@ -17,9 +17,26 @@ class Chain {
         const newBlock = new Block(newBlockData, prevHash);
         this.chain.push(newBlock);
     }
+    // check valid
+    checkValid() {
+        for (let i = 0; i < this.chain.length; i++) {
+            const now_block = this.chain[i];
+            const ifHashRight = now_block.checkHash();
+            if(!ifHashRight) {
+                console.log('block 被修改过了');
+                return false;
+            }
+            if (i > 0) {
+                const before_block = this.chain[i - 1];
+                if (before_block.hash !== now_block.preHash) {
+                    console.log('chain 断裂');
+                    return false;
+                }
+            }
+        }
+        console.log('chain 合法');
+        return true;
+    }
 }
 
-
-const myChain = new Chain();
-myChain.addBlock('第二个区块');
-console.log(myChain)
+module.exports = Chain;
