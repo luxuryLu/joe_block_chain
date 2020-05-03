@@ -1,6 +1,7 @@
 const Chain = require('./chain');
 
 const myChain = new Chain();
+myChain.setDifficulty(4);
 myChain.addBlock('第二个区块');
 myChain.addBlock('第三个区块');
 console.log(myChain)

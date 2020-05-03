@@ -3,6 +3,7 @@ const Block = require('./block');
 class Chain {
     constructor() {
         this.chain = [];
+        this.difficulty = 0;
         this.createGenesisBlock();
     }
     // 生成第一个区块/创世块
@@ -15,6 +16,8 @@ class Chain {
         const lastBlock = this.chain[this.chain.length - 1];
         const prevHash = lastBlock.hash;
         const newBlock = new Block(newBlockData, prevHash);
+        newBlock.mineBlock(this.difficulty);
+        // 完成POW之后才添加
         this.chain.push(newBlock);
     }
     // check valid
@@ -36,6 +39,10 @@ class Chain {
         }
         console.log('chain 合法');
         return true;
+    }
+    // 修改难度
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
     }
 }
 
